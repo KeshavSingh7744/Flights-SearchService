@@ -27,7 +27,7 @@ const create = async (req, res) => {
   }
 };
 
-const destroy = async () => {
+const destroy = async (req, res) => {
   try {
     const response = await cityService.deleteCity(req.params.id);
     return res.status(200).json({
@@ -47,7 +47,7 @@ const destroy = async () => {
   }
 };
 
-const get = async () => {
+const get = async (req, res) => {
   try {
     const response = await cityService.getCity(req.params.id);
     return res.status(200).json({
@@ -67,7 +67,7 @@ const get = async () => {
   }
 };
 
-const update = async () => {
+const update = async (req, res) => {
   try {
     const response = await cityService.updateCity(req.params.id, req.body);
     return res.status(200).json({
