@@ -4,6 +4,9 @@ const {PORT} = require('./config/serverConfig');
 const apiRoutes = require('./routes/index');
 
 
+const db = require('./models/index')
+
+
 
 const setupAndStartServer = async()=>{
     // creating the express object
@@ -13,8 +16,13 @@ const setupAndStartServer = async()=>{
     app.use(bodyParser.urlencoded({extended: true}));
     app.use('/api',apiRoutes);
 
-    app.listen(PORT,()=>{
+    app.listen(PORT,async ()=>{
         console.log(`server started at port ${PORT}`);
+
+        if(process.env.SYNC_DB){
+            db.sequelize.sync({alter:true});
+            
+        }
     })
 }
 
