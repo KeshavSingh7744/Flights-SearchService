@@ -22,7 +22,6 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        unique : true 
       }
     });
   },
