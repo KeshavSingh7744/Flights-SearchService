@@ -1,42 +1,33 @@
-"use strict";
+'use strict';
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-     */
 
     await queryInterface.bulkInsert(
-      "Airplanes",
+      "Cities",
       [
         {
-          modelNumber: "Boeing 737",
-          capacity: 300,
+          name: "Delhi",
+          id: 8,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          modelNumber: "Airbus A330",
-          capacity: 320,
+          name: "Mumbai",
+          id: 9,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          modelNumber: "Boeing 777",
-          capacity: 350,
+          name: "Kannada",
+          id: 11,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          modelNumber: "Airbus A440",
-          capacity: 400,
+          name: "Benglore",
+          id: 12,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -45,7 +36,10 @@ module.exports = {
     );
   },
 
+
+
   async down(queryInterface, Sequelize){
-    await queryInterface.bulkDelete('Airplanes', null, {});
-    
- }};
+   await queryInterface.bulkDelete('Cities', null, {});
+   
+}};
+
