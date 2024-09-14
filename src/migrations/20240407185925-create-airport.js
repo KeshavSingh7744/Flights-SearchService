@@ -15,11 +15,13 @@ module.exports = {
         allowNull : false,
       },
       address: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull : true,
       },
       cityId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        unique : true,
         onDelete : 'CASCADE',
         references : {
           model : 'Cities',
